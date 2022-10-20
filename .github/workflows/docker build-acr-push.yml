@@ -25,6 +25,6 @@ jobs:
           login-server: prodipacreuw.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-        run: |
+      - run: |
           docker build . -t prodipacreuw.azurecr.io/ip-php-fpm:${{ github.sha }}
           docker push prodipacreuw.azurecr.io/ip-php-fpm:${{ github.sha }}  
