@@ -3,10 +3,11 @@ name: php-fpm build
 on:
   push:
     branches: ['main']
+    path: php-fpm
 
   pull_request:
     branches: ['main']
-
+    path: php-fpm
 
 defaults:
   run:
@@ -19,8 +20,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checks out code
       - uses: actions/checkout@v2
 
+      # Builds and pushes code to Azure Container Registry
       - uses: azure/docker-login@v1
         with:
           login-server: prodipacreuw.azurecr.io
