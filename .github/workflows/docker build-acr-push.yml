@@ -3,11 +3,13 @@ name: php-fpm build
 on:
   push:
     branches: ['main']
-    path: php-fpm
+    paths: 
+      - 'php-fpm/'
 
   pull_request:
     branches: ['main']
-    path: php-fpm
+    paths: 
+      - 'php-fpm/'
 
 defaults:
   run:
