@@ -1,0 +1,31 @@
+name: php-fpm build
+
+on:
+  push:
+    branches: ['main']
+    paths: ['dockers/php-fpm'] 
+  pull_request:
+    branches: ['main']
+    paths: ['dockers/php-fpm'] 
+
+defaults:
+  run:
+    working-directory: dockers/php-fpm 
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: azure/docker-login@v1
+        with:
+          login-server: yourACRname.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - run: |
+          docker build . -t prodipacreuw.azurecr.io/ip-php-fpm:${{ github.sha }}
+          docker push prodipacreuw.azurecr.io/ip-php-fpm:${{ github.sha }}  
