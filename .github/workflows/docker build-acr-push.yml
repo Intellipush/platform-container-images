@@ -10,19 +10,21 @@ on:
 
 defaults:
   run:
-    working-directory: dockers/php-fpm 
+    working-directory: php-fpm 
+
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      
       - uses: azure/docker-login@v1
         with:
           login-server: prodipacreuw.azurecr.io
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
-
-      - run: |
+        run: |
           docker build . -t prodipacreuw.azurecr.io/ip-php-fpm:${{ github.sha }}
           docker push prodipacreuw.azurecr.io/ip-php-fpm:${{ github.sha }}  
