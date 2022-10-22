@@ -2,9 +2,10 @@ name: Create and publish a Docker image
 
 on:
   push:
-    branches: ['main']
+    branches: 
+    - main
     paths: 
-    - php-fpm
+    - php-fpm/**
 
 env:
   REGISTRY: ghcr.io
