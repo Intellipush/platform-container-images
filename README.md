@@ -3,4 +3,4 @@
 Containers: 
 
 ### PHP-FPM Container build and push
-[![php-fpm build](https://github.com/Intellipush/platform-container-images/actions/workflows/docker%20build-acr-push.yml/badge.svg?branch=main)](https://github.com/Intellipush/platform-container-images/actions/workflows/docker%20build-acr-push.yml)
+[![Create and publish a Docker image](https://github.com/Intellipush/platform-container-images/actions/workflows/php-build-push-to-ghcr.yml/badge.svg)](https://github.com/Intellipush/platform-container-images/actions/workflows/php-build-push-to-ghcr.yml)
